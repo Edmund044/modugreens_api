@@ -4,8 +4,10 @@ const morgan = require('morgan');
 app.use(morgan('dev'));
 
 const  clientauthentication= require('./routes/customer/authentication/authentication');
-const  clientharvest= require('./routes/customer/authentication/authentication');
-
+const  clientharvest= require('./routes/customer/harvest/harvest');
+const  clientcrops= require('./routes/customer/crops/crops');
+const  clientnotification= require('./routes/customer/notification/notification');
+const  clientstatistics= require('./routes/customer/statistics/statistics');
 
 app.use(cors({ origin: true }));
 app.use(bodyParser.urlencoded({
