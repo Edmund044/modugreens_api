@@ -1,0 +1,13 @@
+{
+    "type": "service_account",
+    "project_id": "quick-garage-api",
+    "private_key_id": "252bf20e3596d9a1532b3f3e47cbd5c21ed9b579",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCuA2W98BOUpp2S\nGxJJGzXZzpO2jQ+kuDnMETYHw3vF4+64iCsCXPlK5tiNufhiJ3hG/whn2gU15ona\nmUurcxXOMb5zN9f0IbJsLM74W24gkApdc+L5qTh5j0MpdM0jv7X0JPxAjBQw6JKs\nT5Gq9VdcD/wMW01VWSrgyo39cUhoF9rOe1qNs2OmWyyHEeBy0oFok0x7vVEVqTbC\nahTj4PrQKoif8QqBscPm6QfokUj7ZMjg3RD4I+6Wtai1d2wcokLRGo5TtzwVahBX\nH9F99CEJA1zzSp9gPHkCgjLqsG586Du2iLhdg5Ri7bEpkwMhQsXU/8upI4zuu4tG\no7WZss5RAgMBAAECggEAAock+2u1PBzIx5hmNUrMdyjeqVluoY7l04ypNVcKGXWK\niHKdddYEDtoQSaxKwwHF5/mg3ZHbryUViff9wvyLs7xyIuY7+FVkPDkxK0dYP+e5\nx9Jk+Omj+vOZZxz11TPt9LFUGwux6CU7yr4n7ITuh0VJ7QPHSYLvahc1NXonoi/2\n4D8iMw0LuDrxsq2J4SBZ8lW0bSgMJBUhTnGxGGPB6a3F0N3oOWfJCAD5PDA8TPtH\nAMt/xnrCYVKfn+xxwslcKzMZlJntbqZu81FrjeF/CiWeNmGxOZOpWTBX5gYZBEFb\nhYccR1NObPLmHmmbnDq+1sNo0Omrjtg2lGODzBmiwQKBgQDkv/d0tUrKeeQ6UkNX\nOzwNpJxU6dJTIZP9J6DQY6hr3LAJ3x+lMVtqlFVljvkMrRcl648mje51xnyuRzlv\nRw7o8EJbbqe7RHuw3G4468/ODCl+iA5j2YeusYUAnz25MZbacQkAaGtZGjnzj9uH\nTyU01GPEdnR6nIbKMO9AiClxkQKBgQDCvio80LIzj1al8XQW7Z1SqKYC6uCLAG3r\n29MN/sGlABmctrVOTpH1a2FnuNcKhQj0w+3JFAmDNfZ5yam2Y+dKVXhy+I2NmeUv\n1b9tgEwsxE7j+01HRKg0yV3WwbGERzNkOfwzDxqM7J7zYPQhB7a7Mu0LIL060ZZD\nlizethkwwQKBgDX5tgIr5QHx0RCR6KHksD7n4JuIsMA85BaQCzogydTptgAeTfFE\nvDVh2uSj39BF53hjJNwMEYBo3XKiC8NeGP6N8ppwedOOTUFmQfvcaKRN6lyY7gxR\nf9qQuLl02bOhJ99TXLRj7zCPJ614/GvpGPZmR0RMTx+/X27GLS4k8uKBAoGBAIgC\nHiepLbv60O5Giuh0fVq8dG03MymBXEPMnEN6+C1Pu5OKu2d8Uk4P99Bj9LPhI9cm\ne4zi1J3x8zktkbzTWza8KMpLMzmBEOLuqqpEX28oj1yEJ32twrhTJpmVX3Bd9dN6\n99uFIeroWz7pKLdk1sc5Evqhm+dXd1WurZnBnihBAoGACXPQbCvAiBLFmueHpuNJ\n3hfUxmdSRx9hHf2BRPqOZktvUny2NNbvC1rGA1qMY3GgrycdfmtZIsD3pxhWcI64\nps02qW22SMoftKtASq7cLPv/ZGeJ3rgtv3ODXRUC8/qSNOH5vAF39XWm8z+frQWx\np5ahQ/w5HecZ871RCwPQSOQ=\n-----END PRIVATE KEY-----\n",
+    "client_email": "firebase-adminsdk-qvso6@quick-garage-api.iam.gserviceaccount.com",
+    "client_id": "107796619428480166546",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-qvso6%40quick-garage-api.iam.gserviceaccount.com"
+  }
+  
