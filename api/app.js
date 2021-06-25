@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
+const bodyParser = require('body-parser');
 const morgan = require('morgan');
 app.use(morgan('dev'));
 
@@ -7,7 +9,7 @@ const  customersAuthentication = require('./routes/customer/authentication/authe
 const  customersHarvest = require('./routes/customer/harvest/harvest');
 const  customersCrops = require('./routes/customer/crops/crops');
 const  customersNotification = require('./routes/customer/notification/notification');
-//const  customersStatistics = require('./routes/customer/statistics/statistics');
+const  customersStatistics = require('./routes/customer/statistics/statistics');
 
 app.use(cors({ origin: true }));
 app.use(bodyParser.urlencoded({
@@ -53,4 +55,4 @@ app.use((error, req, res, next) => {
   });
 });
 
-module.exports(app);
+module.exports = app ;

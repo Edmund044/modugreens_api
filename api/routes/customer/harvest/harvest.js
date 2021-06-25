@@ -6,18 +6,18 @@ const admin = require('../../../../firebase/database');
 const db = admin.firestore();
 
 
-//get about 
-app.get("/about",async (req,res,next)=>{
-    let about=[]
-   const about_info = await db.collection('about')
+//get data 
+app.get("/harvests",async (req,res,next)=>{
+    let data=[]
+   const data_info = await db.collection('harvest')
         .get()
         .then( (snapshot) => {
             if (snapshot.docs.length > 0) {
                 for (const info of snapshots.docs) {
-                 about.push(info.data())
+                 data.push(info.data())
                  
               }}
-              res.status(200).json(about);           
+              res.status(200).json(data);           
         }
           
         )
@@ -30,11 +30,11 @@ app.get("/about",async (req,res,next)=>{
  
 
 });
-//post about
-app.post("/about",async (req,res,next) =>{
-    let docref = await db.collection("about")
+//post data
+app.post("/harvests",async (req,res,next) =>{
+    let docref = await db.collection("data")
         .add({
-          sth :req.body.about.sth,
+          sth :req.body.data.sth,
             })
         .then(
            (snapshot) => {
@@ -49,12 +49,12 @@ app.post("/about",async (req,res,next) =>{
         );
 
 });
-//update about
-app.put("/about/:id",async (req,res,next)=>{
-  let docref =  db.collection("about").doc(req.body.user.name);
+//update data
+app.put("/harvests/:id",async (req,res,next)=>{
+  let docref =  db.collection("data").doc(req.body.user.name);
   await docref
         .update({
-         sth:req.body.about.sth
+         sth:req.body.data.sth
                 })
         .then(
            (snapshot) => {
@@ -68,8 +68,8 @@ app.put("/about/:id",async (req,res,next)=>{
               );        
  
 });
-//delete about
-app.delete("/about:id",async (req,res,next) =>{
+//delete data
+app.delete("/harvests/:id",async (req,res,next) =>{
     await db.collection()
         .doc(req.body.id)
         .delete()
