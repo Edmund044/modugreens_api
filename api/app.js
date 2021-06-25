@@ -3,11 +3,11 @@ const app = express();
 const morgan = require('morgan');
 app.use(morgan('dev'));
 
-const  clientauthentication= require('./routes/customer/authentication/authentication');
-const  clientharvest= require('./routes/customer/harvest/harvest');
-const  clientcrops= require('./routes/customer/crops/crops');
-const  clientnotification= require('./routes/customer/notification/notification');
-const  clientstatistics= require('./routes/customer/statistics/statistics');
+const  customersAuthentication = require('./routes/customer/authentication/authentication');
+const  customersHarvest = require('./routes/customer/harvest/harvest');
+const  customersCrops = require('./routes/customer/crops/crops');
+const  customersNotification = require('./routes/customer/notification/notification');
+const  customersStatistics = require('./routes/customer/statistics/statistics');
 
 app.use(cors({ origin: true }));
 app.use(bodyParser.urlencoded({
@@ -28,6 +28,14 @@ app.use((req, res, next) => {
 	next();
 
 });
+
+
+//routes
+app.use("/api/customers/authenticate", customersAuthentication );
+app.use("/api/customers/authenticate", customersHarvest);
+app.use("/api/customers/authenticate",  customersCrops);
+app.use("/api/customers/authenticate", customersNotification);
+app.use("/api/customers/authenticate", customersStatistics);
 
 //Incase of wrong url
 app.use((req, res, next) => {
