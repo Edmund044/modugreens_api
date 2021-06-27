@@ -1,11 +1,12 @@
-const admin = require('firebase-admin');
+var firebase = require('firebase');
+var app = firebase.initializeApp({  
+    apiKey: "AIzaSyALR1DkAgjaoEmak1UVAvSxkfbG4zOSjxo",
+    authDomain: "modugreens.firebaseapp.com",
+    projectId: "modugreens",
+    storageBucket: "modugreens.appspot.com",
+    messagingSenderId: "830310619902",
+    appId: "1:830310619902:web:ea0cccf4f0067d100163af",
+    measurementId: "G-TZKY211NZR"
 
-const serviceAccount = require('./firebase-permission.json');
-
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://quick-garage-api-default-rtdb.firebaseio.com",
-    storageBucket: process.env.STORAGE_BUCKET
 });
-
-module.exports = admin;
+module.exports = firebase;
