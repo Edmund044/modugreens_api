@@ -7,9 +7,9 @@ const db = admin.firestore();
 
 
 //get about 
-app.get("/about",async (req,res,next)=>{
+app.get("/crops",async (req,res,next)=>{
     let about=[]
-   const about_info = await db.collection('about')
+   const about_info = await db.collection('crops')
         .get()
         .then( (snapshot) => {
             if (snapshot.docs.length > 0) {
