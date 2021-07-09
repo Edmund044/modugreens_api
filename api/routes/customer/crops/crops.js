@@ -10,23 +10,13 @@ const db = admin.firestore();
 app.get("/crops",async (req,res,next)=>{
     let about=[]
    const about_info = await db.collection('crops')
-        .get()
-        .then( (snapshot) => {
-            if (snapshot.docs.length > 0) {
-                for (const info of snapshots.docs) {
-                 about.push(info.data())
-                 
-              }}
-              res.status(200).json(about);           
-        }
-          
-        )
-        .catch(
-           error => {
-             res.status(500).json({error:error})                   
-           }
-            
-        );
+        .get();
+        if (snapshot.docs.length > 0) {
+          for (const info of snapshot.docs) {
+           about.push(info.data())
+           
+        }}
+        res.json(about);
  
 
 });
