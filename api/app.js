@@ -39,8 +39,12 @@ app.use("/api/customers/crops",  customersCrops);
 app.use("/api/customers/notification", customersNotification);
 app.use("/api/customers/statistics", customersStatistics);
 
+app.get("/api/customers/cropss",(req, res, next) => {
+  res.send("Hi there");
+});
+
 //Incase of wrong url
-app.use((req, res, next) => {
+/*app.use((req, res, next) => {
   const error = new Error('Invalid Url Address. Please Contact Support');
   error.status = 404;
   next(error);
@@ -53,6 +57,6 @@ app.use((error, req, res, next) => {
           message: error.message
       }
   });
-});
+});*/
 
 module.exports = app ;
