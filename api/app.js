@@ -40,19 +40,19 @@ app.use("/api/customers/notification", customersNotification);
 app.use("/api/customers/statistics", customersStatistics);
 
 //Incase of wrong url
-app.use((req, res, next) => {
+/*app.use((req, res, next) => {
   const error = new Error('Invalid Url Address. Please Contact Support');
   error.status = 404;
   next(error);
-});
+});*/
 
-app.use((error, req, res, next) => {
+/*app.use((error, req, res, next) => {
   res.status(error.status || 500);
   res.json({
       error: {
           message: error.message
       }
   });
-});
+});*/
 
 module.exports = app ;
