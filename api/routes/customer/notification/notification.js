@@ -7,35 +7,26 @@ const db = admin.firestore();
 
 
 //get about 
-app.get("/about",async (req,res,next)=>{
-    let about=[]
-   const about_info = await db.collection('about')
-        .get()
-        .then( (snapshot) => {
-            if (snapshot.docs.length > 0) {
-                for (const info of snapshots.docs) {
-                 about.push(info.data())
-                 
-              }}
-              res.status(200).json(about);           
-        }
-          
-        )
-        .catch(
-           error => {
-             res.status(500).json({error:error})                   
-           }
-            
-        );
- 
-
+app.get("/notification",async (req,res,next)=>{
+  const snapshot = await db.collection("notification")
+                  .get()
+                  .then( (snapshot) => {
+                    const data = snapshot.docs.map((doc) => ({ id:doc.id,...doc.data() }));
+                    res.status(200).json(data); 
+                    console.log(data);
+                  }
+                   
+                  )
+                  .catch( 
+                    error => {
+                    res.status(500).json({error:error})                   
+                  });
 });
 //post about
-app.post("/about",async (req,res,next) =>{
-    let docref = await db.collection("about")
-        .add({
-          sth :req.body.about.sth,
-            })
+app.post("/notification",async (req,res,next) =>{
+  const data = req.body;
+    let snapshot= await db.collection("notification")
+        .add(data)
         .then(
            (snapshot) => {
             res.status(200).json({message:"Done"});
@@ -50,11 +41,15 @@ app.post("/about",async (req,res,next) =>{
 
 });
 //update about
-app.put("/about/:id",async (req,res,next)=>{
-  let docref =  db.collection("about").doc(req.body.user.name);
-  await docref
+
+app.put("/notification",async (req,res,next)=>{
+    const id = req.body.id;
+    delete req.body.id;
+    const data = req.body;
+    let snapshot= await db.collection("notification")
+        .doc(id)
         .update({
-         sth:req.body.about.sth
+        data
                 })
         .then(
            (snapshot) => {
@@ -68,23 +63,27 @@ app.put("/about/:id",async (req,res,next)=>{
               );        
  
 });
+
 //delete about
-app.delete("/about:id",async (req,res,next) =>{
-    await db.collection()
-        .doc(req.body.id)
-        .delete()
-        .then(
-            (snapshot) => {
-             res.status(200).json({message:"Done"});
-            } 
-          
-         )
-         .catch(
-             error => {
-                 res.status(500).json({error:error})                   
-               }
-         );
-  
+app.delete("/notification",async (req,res,next) =>{
+  const id = req.body.id;
+  delete req.body.id;
+  const data = req.body;
+  let snapshot= await db.collection("notification")
+      .doc(id)
+      .delete({
+      data
+              })
+      .then(
+         (snapshot) => {
+           res.status(200).json({message:"Done"});
+             } 
+          )
+      .catch(
+          error => {
+          res.status(500).json({error:error})                   
+             }
+            );  
 });
 
 module.exports = app;
