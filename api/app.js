@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 app.use(morgan('dev'));
 
-const  customersAuthentication = require('./routes/customer/authentication/authentication');
+const  customersProfile = require('./routes/customer/profile/profile');
 const  customersHarvest = require('./routes/customer/harvest/harvest');
 const  customersCrops = require('./routes/customer/crops/crops');
 const  customersNotification = require('./routes/customer/notification/notification');
@@ -33,7 +33,7 @@ app.use((req, res, next) => {
 
 
 //routes
-app.use("/api/customers/authenticate", customersAuthentication );
+app.use("/api/customers/profile", customersProfile );
 app.use("/api/customers/harvests", customersHarvest);
 app.use("/api/customers/crops",  customersCrops);
 app.use("/api/customers/notification", customersNotification);
