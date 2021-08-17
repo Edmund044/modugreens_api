@@ -27,8 +27,7 @@ app.get("/crops/:id",async (req,res,next)=>{
   const id = req.params.id;
   console.log(id);
   const snapshot = await db.collection("crops")
-                  //.where("id", "==", id)
-                  .doc(id)
+                  .where(admin.firestore.FieldPath.documentId(), "==", id)
                   .get()
                   .then(
                     (snapshot) => {
