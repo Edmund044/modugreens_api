@@ -25,15 +25,16 @@ app.get("/crops",async (req,res,next)=>{
 //get about 
 app.get("/crops/:id",async (req,res,next)=>{
   const id = req.params.id;
+  console.log(id);
   const snapshot = await db.collection("crops")
+                  //.where("id", "==", id)
                   .doc(id)
                   .get()
-                  .then( (snapshot) => {
+                  .then(
+                    (snapshot) => {
                     const data = snapshot.docs.map((doc) => ({ id:doc.id,...doc.data() }));
                     res.status(200).json(data); 
-                    console.log(data);
-                  }
-                   
+                    console.log(data); }                          
                   )
                   .catch( 
                     error => {
