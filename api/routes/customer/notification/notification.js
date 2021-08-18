@@ -22,6 +22,24 @@ app.get("/notification",async (req,res,next)=>{
                     res.status(500).json({error:error})                   
                   });
 });
+//get about 
+app.get("/notification/:id",async (req,res,next)=>{
+  const id = req.params.id;
+  console.log(id);
+  const snapshot = await db.collection("notification")
+                  .where(admin.firestore.FieldPath.documentId(), "==", id)
+                  .get()
+                  .then(
+                    (snapshot) => {
+                    const data = snapshot.docs.map((doc) => ({ id:doc.id,...doc.data() }));
+                    res.status(200).json(data); 
+                    console.log(data); }                          
+                  )
+                  .catch( 
+                    error => {
+                    res.status(500).json({error:error})                   
+                  });
+});
 //post about
 app.post("/notification",async (req,res,next) =>{
   const data = req.body;
