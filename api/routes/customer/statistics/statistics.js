@@ -7,8 +7,26 @@ const db = admin.firestore();
 
 
 //get about 
-app.get("/statistics",async (req,res,next)=>{
+app.get("/statistics/",async (req,res,next)=>{
   const snapshot = await db.collection("statistics")
+                  .get()
+                  .then( (snapshot) => {
+                    const data = snapshot.docs.map((doc) => ({ id:doc.id,...doc.data() }));
+                    res.status(200).json(data); 
+                    console.log(data);
+                  }
+                   
+                  )
+                  .catch( 
+                    error => {
+                    res.status(500).json({error:error})                   
+                  });
+});
+//get  specific about 
+app.get("/statistics/:name",async (req,res,next)=>{
+  const name = req.params.name;
+  const snapshot = await db.collection("statistics")
+                  .where("data.statistics_name", "==", name)
                   .get()
                   .then( (snapshot) => {
                     const data = snapshot.docs.map((doc) => ({ id:doc.id,...doc.data() }));

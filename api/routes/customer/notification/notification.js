@@ -33,7 +33,8 @@ app.get("/notification/:id",async (req,res,next)=>{
                     (snapshot) => {
                     const data = snapshot.docs.map((doc) => ({ id:doc.id,...doc.data() }));
                     res.status(200).json(data); 
-                    console.log(data); }                          
+                    console.log(data);
+                   }                          
                   )
                   .catch( 
                     error => {
