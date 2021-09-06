@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 require('dotenv').config();
-const admin = require('../../../../firebase/database');
+const admin = require('../../../firebase/database');
 const db = admin.firestore();
 
 
