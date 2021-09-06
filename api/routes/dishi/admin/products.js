@@ -7,8 +7,8 @@ const db = admin.firestore();
 
 
 //get about 
-app.get("/crops",async (req,res,next)=>{
-  const snapshot = await db.collection("crops")
+app.get("/products",async (req,res,next)=>{
+  const snapshot = await db.collection("products")
                   .get()
                   .then( (snapshot) => {
                     const data = snapshot.docs.map((doc) => ({ id:doc.id,...doc.data() }));
@@ -23,10 +23,10 @@ app.get("/crops",async (req,res,next)=>{
                   });
 });
 //get about 
-app.get("/crops/:id",async (req,res,next)=>{
+app.get("/products/:id",async (req,res,next)=>{
   const id = req.params.id;
   console.log(id);
-  const snapshot = await db.collection("crops")
+  const snapshot = await db.collection("products")
                   .where(admin.firestore.FieldPath.documentId(), "==", id)
                   .get()
                   .then(
@@ -41,9 +41,9 @@ app.get("/crops/:id",async (req,res,next)=>{
                   });
 });
 //post about
-app.post("/crops",async (req,res,next) =>{
+app.post("/products",async (req,res,next) =>{
   const data = req.body;
-    let snapshot= await db.collection("crops")
+    let snapshot= await db.collection("products")
         .add(data)
         .then(
            (snapshot) => {
@@ -60,11 +60,11 @@ app.post("/crops",async (req,res,next) =>{
 });
 //update about
 
-app.put("/crops",async (req,res,next)=>{
+app.put("/products",async (req,res,next)=>{
     const id = req.body.id;
     delete req.body.id;
     const data = req.body;
-    let snapshot= await db.collection("crops")
+    let snapshot= await db.collection("products")
         .doc(id)
         .update({
         data
@@ -83,11 +83,11 @@ app.put("/crops",async (req,res,next)=>{
 });
 
 //delete about
-app.delete("/crops",async (req,res,next) =>{
+app.delete("/products",async (req,res,next) =>{
   const id = req.body.id;
   delete req.body.id;
   const data = req.body;
-  let snapshot= await db.collection("crops")
+  let snapshot= await db.collection("products")
       .doc(id)
       .delete({
       data

@@ -7,8 +7,8 @@ const db = admin.firestore();
 
 
 //get about 
-app.get("/crops",async (req,res,next)=>{
-  const snapshot = await db.collection("crops")
+app.get("/matatu",async (req,res,next)=>{
+  const snapshot = await db.collection("matatu")
                   .get()
                   .then( (snapshot) => {
                     const data = snapshot.docs.map((doc) => ({ id:doc.id,...doc.data() }));
@@ -23,10 +23,10 @@ app.get("/crops",async (req,res,next)=>{
                   });
 });
 //get about 
-app.get("/crops/:id",async (req,res,next)=>{
+app.get("/matatu/:id",async (req,res,next)=>{
   const id = req.params.id;
   console.log(id);
-  const snapshot = await db.collection("crops")
+  const snapshot = await db.collection("matatu")
                   .where(admin.firestore.FieldPath.documentId(), "==", id)
                   .get()
                   .then(
@@ -41,9 +41,9 @@ app.get("/crops/:id",async (req,res,next)=>{
                   });
 });
 //post about
-app.post("/crops",async (req,res,next) =>{
+app.post("/matatu",async (req,res,next) =>{
   const data = req.body;
-    let snapshot= await db.collection("crops")
+    let snapshot= await db.collection("matatu")
         .add(data)
         .then(
            (snapshot) => {
@@ -60,11 +60,11 @@ app.post("/crops",async (req,res,next) =>{
 });
 //update about
 
-app.put("/crops",async (req,res,next)=>{
+app.put("/matatu",async (req,res,next)=>{
     const id = req.body.id;
     delete req.body.id;
     const data = req.body;
-    let snapshot= await db.collection("crops")
+    let snapshot= await db.collection("matatu")
         .doc(id)
         .update({
         data
@@ -83,11 +83,11 @@ app.put("/crops",async (req,res,next)=>{
 });
 
 //delete about
-app.delete("/crops",async (req,res,next) =>{
+app.delete("/matatu",async (req,res,next) =>{
   const id = req.body.id;
   delete req.body.id;
   const data = req.body;
-  let snapshot= await db.collection("crops")
+  let snapshot= await db.collection("matatu")
       .doc(id)
       .delete({
       data

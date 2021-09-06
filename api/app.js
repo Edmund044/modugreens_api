@@ -10,6 +10,13 @@ const  customersHarvest = require('./routes/customer/harvest/harvest');
 const  customersCrops = require('./routes/customer/crops/crops');
 const  customersNotification = require('./routes/customer/notification/notification');
 const  customersStatistics = require('./routes/customer/statistics/statistics');
+//matatu
+const  matatu = require('./routes/matatu/matatu');
+//waterLevel
+const  waterLevel = require('./routes/waterLevel/waterLevel');
+//dishi
+const  dishiAdmin = require('./routes/dishi/admin/product');
+const  dishiUser = require('./routes/dishi/customer/orders');
 
 app.use(cors({ origin: true }));
 app.use(bodyParser.urlencoded({
@@ -38,6 +45,14 @@ app.use("/api/customers/harvests", customersHarvest);
 app.use("/api/customers/crops",  customersCrops);
 app.use("/api/customers/notification", customersNotification);
 app.use("/api/customers/statistics", customersStatistics);
+//matatu
+app.use("matatu", matatu );
+//waterLevel
+app.use("waterLevel", waterLevel );
+//dishi
+app.use("dishiAdmin", dishiAdmin );
+app.use("dishiUser",dishiUser );
+
 
 app.get("/api/customers/cropss",(req, res, next) => {
   res.send("Hi there");
