@@ -47,7 +47,7 @@ app.post("/status",async (req,res,next) =>{
         .add(data)
         .then(
            (snapshot) => {
-            res.status(200).json({message:"Done"});
+            res.status(200).json({id:snapshot.id,message:"Done"});
            } 
          
         )
