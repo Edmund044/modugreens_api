@@ -83,8 +83,8 @@ app.put("/status",async (req,res,next)=>{
 });
 
 //delete about
-app.delete("/status",async (req,res,next) =>{
-  const id = req.body.id;
+app.delete("/status/:id",async (req,res,next) =>{
+  const id = req.params.id;
   delete req.body.id;
   const data = req.body;
   let snapshot= await db.collection("status")
