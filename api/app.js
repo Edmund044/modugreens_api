@@ -14,6 +14,7 @@ const  customersStatistics = require('./routes/customer/statistics/statistics');
 const  matatu = require('./routes/matatu/matatu');
 //waterLevel
 const  waterLevel = require('./routes/waterLevel/waterLevel/waterLevel');
+const  status = require('./routes/waterLevel/status/status');
 //dishi
 const  dishiAdmin = require('./routes/dishi/admin/products');
 const  dishiUser = require('./routes/dishi/customer/orders');
@@ -49,6 +50,8 @@ app.use("/api/customers/statistics", customersStatistics);
 app.use("/matatu", matatu );
 //waterLevel
 app.use("/waterLevel", waterLevel );
+app.use("/status", status );
+
 //dishi
 app.use("/dishiAdmin", dishiAdmin );
 app.use("/dishiUser",dishiUser );
