@@ -27,7 +27,7 @@ app.get("/status/:id",async (req,res,next)=>{
   const id = req.params.id;
   console.log(id);
   const snapshot = await db.collection("status")
-                  .where("data.unique_number", "==", id)
+                  .where(admin.firestore.FieldPath.documentId(), "==", id)
                   .get()
                   .then(
                     (snapshot) => {
@@ -47,7 +47,7 @@ app.post("/status",async (req,res,next) =>{
         .add(data)
         .then(
            (snapshot) => {
-            res.status(200).json({id:snapshot.id,message:"Done"});
+            res.status(200).json({message:"Done"});
            } 
          
         )
@@ -83,8 +83,8 @@ app.put("/status",async (req,res,next)=>{
 });
 
 //delete about
-app.delete("/status/:id",async (req,res,next) =>{
-  const id = req.params.id;
+app.delete("/status",async (req,res,next) =>{
+  const id = req.body.id;
   delete req.body.id;
   const data = req.body;
   let snapshot= await db.collection("status")

@@ -22,6 +22,22 @@ app.get("/matatu",async (req,res,next)=>{
                     res.status(500).json({error:error})                   
                   });
 });
+//get vehicle
+app.get("/vehicle",async (req,res,next)=>{
+  const snapshot = await db.collection("vehicle")
+                  .get()
+                  .then( (snapshot) => {
+                    const data = snapshot.docs.map((doc) => ({ id:doc.id,...doc.data() }));
+                    res.status(200).json(data); 
+                    console.log(data); 
+                  }
+                   
+                  )
+                  .catch( 
+                    error => {
+                    res.status(500).json({error:error})                   
+                  });
+});
 //get about 
 app.get("/matatu/:id",async (req,res,next)=>{
   const id = req.params.id;
@@ -44,6 +60,24 @@ app.get("/matatu/:id",async (req,res,next)=>{
 app.post("/matatu",async (req,res,next) =>{
   const data = req.body;
     let snapshot= await db.collection("matatu")
+        .add(data)
+        .then(
+           (snapshot) => {
+            res.status(200).json({message:"Done"});
+           } 
+         
+        )
+        .catch(
+            error => {
+                res.status(500).json({error:error})                   
+              }
+        );
+
+});
+//post vehicle
+app.post("/vehicle",async (req,res,next) =>{
+  const data = req.body;
+    let snapshot= await db.collection("vehicle")
         .add(data)
         .then(
            (snapshot) => {
