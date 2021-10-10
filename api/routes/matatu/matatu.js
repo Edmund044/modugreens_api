@@ -43,8 +43,9 @@ app.get("/matatu/:id",async (req,res,next)=>{
   const id = req.params.id;
   console.log(id);
   const snapshot = await db.collection("matatu")
-                  .where(admin.firestore.FieldPath.documentId(), "==", id)
-                  .get()
+                 // .where(admin.firestore.FieldPath.documentId(), "==", id)
+                 .where("data.car_id", "==",id) 
+                 .get()
                   .then(
                     (snapshot) => {
                     const data = snapshot.docs.map((doc) => ({ id:doc.id,...doc.data() }));
