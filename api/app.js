@@ -18,7 +18,8 @@ const  status = require('./routes/waterLevel/status/status');
 //dishi
 const  dishiAdmin = require('./routes/dishi/admin/products');
 const  dishiUser = require('./routes/dishi/customer/orders');
-
+//smartgrid
+const smartGrid = require('./routes/smart_grid/smart_grid');
 app.use(cors({ origin: true }));
 app.use(bodyParser.urlencoded({
     extended: true
@@ -55,7 +56,8 @@ app.use("/status", status );
 //dishi
 app.use("/dishiAdmin", dishiAdmin );
 app.use("/dishiUser",dishiUser );
-
+//smart grid
+app.use("/smart", smartGrid );
 
 app.get("/matatu",(req, res, next) => {
   res.send("Hi there");
