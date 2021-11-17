@@ -20,6 +20,8 @@ const  dishiAdmin = require('./routes/dishi/admin/products');
 const  dishiUser = require('./routes/dishi/customer/orders');
 //smartgrid
 const smartGrid = require('./routes/smart_grid/smart_grid');
+//monitor
+const monitor = require('./routes/monitor/monitor');
 app.use(cors({ origin: true }));
 app.use(bodyParser.urlencoded({
     extended: true
@@ -58,7 +60,8 @@ app.use("/dishiAdmin", dishiAdmin );
 app.use("/dishiUser",dishiUser );
 //smart grid
 app.use("/smart", smartGrid );
-
+//monitor
+app.use("/monitor", monitor);
 app.get("/matatu",(req, res, next) => {
   res.send("Hi there");
 });
