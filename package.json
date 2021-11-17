@@ -32,6 +32,7 @@
     "firebase": "^8.6.8",
     "firebase-admin": "^9.10.0",
     "firebase-functions": "^3.13.2",
+    "fuzzylogic": "^0.3.5",
     "http": "0.0.1-security",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
