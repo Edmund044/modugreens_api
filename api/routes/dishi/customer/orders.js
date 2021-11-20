@@ -27,7 +27,8 @@ app.get("/orders/:id",async (req,res,next)=>{
   const id = req.params.id;
   console.log(id);
   const snapshot = await db.collection("orders")
-                  .where(admin.firestore.FieldPath.documentId(), "==", id)
+                  //.where(admin.firestore.FieldPath.documentId(), "==", id)
+                  .where("student_id", "==", id)
                   .get()
                   .then(
                     (snapshot) => {
