@@ -29,6 +29,7 @@ app.get("/orders/:id",async (req,res,next)=>{
   const snapshot = await db.collection("orders")
                   //.where(admin.firestore.FieldPath.documentId(), "==", id)
                   .where("student_id", "==", id)
+                  .limit(1)
                   .get()
                   .then(
                     (snapshot) => {
@@ -84,10 +85,11 @@ app.put("/orders",async (req,res,next)=>{
 });
 
 //delete about
-app.delete("/orders",async (req,res,next) =>{
-  const id = req.body.id;
-  delete req.body.id;
-  const data = req.body;
+app.delete("/orders/:id",async (req,res,next) =>{
+  const id = req.params.id;
+ // delete req.body.id;
+ // const data = req.body;
+ const data ={};
   let snapshot= await db.collection("orders")
       .doc(id)
       .delete({
