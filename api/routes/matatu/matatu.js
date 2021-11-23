@@ -102,7 +102,7 @@ app.post("/matatu/:field1/:field2",async (req,res,next) =>{
     }
   };
   req.body;
-    let snapshot= await db.collection("matatu")
+    let snapshot= await db.collection("matatu2")
         .add(data)
         .then(
            (snapshot) => {
