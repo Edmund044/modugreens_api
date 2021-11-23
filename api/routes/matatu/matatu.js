@@ -93,6 +93,30 @@ app.post("/matatu",async (req,res,next) =>{
         );
 
 });
+//post matatu gsm
+app.post("/matatu/:field1/:field2",async (req,res,next) =>{
+  const data = {
+   "data":{
+     "field1":req.params.field1,
+     "field2":req.params.field2
+    }
+  };
+  req.body;
+    let snapshot= await db.collection("matatu")
+        .add(data)
+        .then(
+           (snapshot) => {
+            res.status(200).json({message:"Done"});
+           } 
+         
+        )
+        .catch(
+            error => {
+                res.status(500).json({error:error})                   
+              }
+        );
+
+});
 //post vehicle
 app.post("/vehicle",async (req,res,next) =>{
   const data = req.body;
