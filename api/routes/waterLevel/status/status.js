@@ -27,7 +27,7 @@ app.get("/status/:id",async (req,res,next)=>{
   const id = req.params.id;
   console.log(id);
   const snapshot = await db.collection("status")
-                  .where(admin.firestore.FieldPath.documentId(), "==", id)
+                  .where("unique_number", "==", id)
                   .get()
                   .then(
                     (snapshot) => {
